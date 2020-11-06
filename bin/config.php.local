@@ -1,0 +1,10 @@
+<?php
+
+// fill it up with your db infos!!
+
+const DB_HOST = '';
+const DB_USER = '';
+const DB_PASSWORD = '';
+const DB_NAME = 'antiques_dealer';
+const DB_PORT = '';
+const DB_CHARSET = 'UTF-8';
