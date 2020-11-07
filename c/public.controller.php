@@ -38,4 +38,12 @@ if (empty($_GET['page'])) {
         $shops = getShops();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-shops.view.php';
     }
+    if ($_GET['page'] === 'items') {
+        $items = getItems();
+        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-items.view.php';
+    }
+    if ($_GET['page'] === 'genres') {
+        $genres = getGenres();
+        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-genres.view.php';
+    }
 }

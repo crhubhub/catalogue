@@ -34,6 +34,7 @@ while ($data = $shop->fetch())
     <?php
 }
 $shop->closeCursor();
-?>
-</body>
-</html>
+$pageTitle = 'Magasin';
+$h2 = 'Gestion du magasin : ';
+$pageContent = ob_get_clean();
+require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'admin.template.php';

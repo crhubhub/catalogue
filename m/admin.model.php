@@ -20,6 +20,26 @@ function countShops() {
     return $req;
 }
 
+function countItems() {
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $req = $db->query('SELECT COUNT(*) AS counted_items FROM item');
+    return $req;
+}
+
+function countGenres() {
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $req = $db->query('SELECT COUNT(*) AS counted_genres FROM genre');
+    return $req;
+}
+
 function getShopById($id)
 {
     try {

@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Mon blog</title>
-    <link href="style.css" rel="stylesheet" />
-</head>
-
-<body>
-Welcome to PUBLIC
-
 <br><a href="?page=shops">Voir les magasins</a>
+<br><a href="?page=items">Voir les articles</a>
+<br><a href="?page=genre">Voir les catégorie</a>
 <br><a href="?page=login">Log In</a>
-</body>
-</html>
+<?php
+$pageTitle = 'Accueil';
+$h2 = 'Bienvenue';
+$pageContent = ob_get_clean();
+require dirname(__DIR__).DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'template'.DIRECTORY_SEPARATOR.'public.template.php';

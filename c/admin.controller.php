@@ -8,8 +8,12 @@ if (isset($url)) {
 }
 
 //remplacer par switch ?
+
+
 if (empty($_GET['page'])) {
     $countedShops = countShops();
+    $countedItems = countItems();
+    $countedGenres = countGenres();
     require('../v/admin-home.view.php');
 } else  {
 

@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Mon blog</title>
-    <link href="style.css" rel="stylesheet" />
-</head>
-
-<body>
-<h1>CRUD Items</h1>
-<p></p>
-
-
 <?php
 while ($data = $items->fetch())
 {
@@ -30,6 +17,7 @@ while ($data = $items->fetch())
     <?php
 }
 $items->closeCursor();
-?>
-</body>
-</html>
+$pageTitle = 'Articles';
+$h2 = 'Gestion des Articles';
+$pageContent = ob_get_clean();
+require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'admin.template.php';
