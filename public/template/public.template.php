@@ -11,7 +11,7 @@
 <header>
     <nav style="display: flex; flex-direction: row">
         <div>
-            <h1>Antiques Dealer</h1>
+            <h1><a href="?page=home">Antiques Dealer</a></h1>
         </div>
         <div class="links">
             <ul>

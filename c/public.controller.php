@@ -8,7 +8,7 @@ if (isset($url)) {
 }
 
 //remplacer par switch ?
-if (empty($_GET['page'])) {
+if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
 //    $countedShops = countShops();
     require '../v/public-home.view.php';
 } else {
@@ -37,14 +37,17 @@ if (empty($_GET['page'])) {
     if ($_GET['page'] === 'shops') {
         $shops = getShops();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-shops.view.php';
+        exit;
     }
     if ($_GET['page'] === 'items') {
         $items = getItems();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-items.view.php';
+        exit;
     }
     if ($_GET['page'] === 'genres') {
         $genres = getGenres();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-genres.view.php';
+        exit;
     }
 
 

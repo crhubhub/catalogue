@@ -1,23 +1,25 @@
 <?php
-while ($data = $items->fetch())
+while ($data = $shops->fetch())
 {
     ?>
-    <div class="news">
+    <div>
         <h3>
             <?= $data['name'] ?>
-            <em>le <?= $data['phone'] ?></em>
+            <em><br>phone : <?= $data['phone'] ?></em>
         </h3>
 
         <p>
-            <?= $data['latitude'] ?>
+            <?= $data['street_name']?>, <?= $data['street_number']?>.<br><?= $data['city']?>
             <br />
-            <em><a href="#">Commentaires</a></em>
+            <em><a href="?page=shop&id=<?=$data['id']?>">Modifier</a></em>
+            <em><a href="#">Supprimer</a></em>
         </p>
     </div>
     <?php
 }
-$items->closeCursor();
-$pageTitle = 'Articles';
-$h2 = 'Gestion des Articles';
+$shops->closeCursor();
+$pageTitle = 'Magasins';
+$h2 = 'Gestion des Magasins';
 $pageContent = ob_get_clean();
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'admin.template.php';
+

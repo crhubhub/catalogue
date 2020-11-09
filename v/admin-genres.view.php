@@ -1,23 +1,25 @@
 <?php
-while ($data = $shops->fetch())
+$itemNb = 0;
+while ($data = $genres->fetch())
 {
+    $itemNb ++;
     ?>
     <div>
-        <h3>
-            <?= $data['name'] ?>
-            <em><br>phone : <?= $data['phone'] ?></em>
-        </h3>
+        <p>
+            (<?=$itemNb?>)
+            <?= $data['name'] ?> (de <?=$data['from_year']?> à <?=$data['to_year']?>) <!-- TODO: 'à nos jours' -->
+            <br>
+            <em><a href="<?=$data['native_country']?>">vers les articles</a></em>
+        </p>
 
         <p>
-            <?= $data['street_name']?>, <?= $data['street_number']?>.<br><?= $data['city']?>
-            <br />
             <em><a href="?page=shop&id=<?=$data['id']?>">Modifier</a></em>
             <em><a href="#">Supprimer</a></em>
         </p>
     </div>
     <?php
 }
-$shops->closeCursor();
+$genres->closeCursor();
 $pageTitle = 'Magasins';
 $h2 = 'Gestion des Magasins';
 $pageContent = ob_get_clean();

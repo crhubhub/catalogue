@@ -1,1 +1,1 @@
-404
+** Ceci est la page 404 **

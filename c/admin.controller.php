@@ -10,7 +10,7 @@ if (isset($url)) {
 //remplacer par switch ?
 
 
-if (empty($_GET['page'])) {
+if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
     $countedShops = countShops();
     $countedItems = countItems();
     $countedGenres = countGenres();
@@ -25,6 +25,22 @@ if (empty($_GET['page'])) {
     if (($_GET['page']) === 'shop') {
         $shop = getShopById($_GET['id']);
         require('../v/admin-shop.view.php');
+    }
+    if (($_GET['page']) === 'genres') {
+        $shops = getShops();
+        require('../v/admin-genres.view.php');
+    }
+    if (($_GET['page']) === 'genre') {
+        $shop = getShopById($_GET['id']);
+        require('../v/admin-genre.view.php');
+    }
+    if (($_GET['page']) === 'items') {
+        $shops = getShops();
+        require('../v/admin-items.view.php');
+    }
+    if (($_GET['page']) === 'item') {
+        $shop = getShopById($_GET['id']);
+        require('../v/admin-item.view.php');
     }
     if (($_GET['page']) === 'end-session') {
         session_destroy();
