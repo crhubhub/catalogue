@@ -6,8 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?=$pageTitle ?? 'Antiques Dealer'?> | ADMIN</title>
 </head>
-<body>
-<h1>Antiques Dealer</h1>
+<body><header>
+    <nav style="display: flex; flex-direction: row">
+        <div>
+            <h1>Antiques Dealer</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="?page=items">Gérer les Articles</a></li>
+                <li><a href="?page=genres">Gérer les Catégories</a></li>
+                <li><a href="?page=shops">Gérer les Magasins</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
 <h2><?=$h2 ?? ''?></h2>
 <?php
 if (isset($_GET['error'])) {
@@ -15,6 +28,10 @@ if (isset($_GET['error'])) {
 }
 echo $pageContent;
 ?>
+</main>
+<footer>
+<br>
 <a href="?page=end-session"> -> Je me déconnecte</a>
+</footer>
 </body>
 </html>

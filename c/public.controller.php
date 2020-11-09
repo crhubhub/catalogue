@@ -46,4 +46,10 @@ if (empty($_GET['page'])) {
         $genres = getGenres();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-genres.view.php';
     }
+
+
+
+    else {
+        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'404.view.php';
+    }
 }

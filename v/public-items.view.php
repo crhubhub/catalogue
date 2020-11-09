@@ -1,12 +1,12 @@
 <?php
-$listId = 0;
+$itemNb = 0;
 while ($data = $items->fetch())
 {
-    $listId ++;
+    $itemNb ++;
     ?>
     <div>
-        <h3>
-            <?=$listId?>.
+        <p>
+            (Objet <?=$itemNb?>)
             <?= $data['name'] ?> (<?=$data['year']?>, <?=$data['country']?>)
             <br>
             <em><a href="<?=$data['reference']?>">+ détails</a></em>

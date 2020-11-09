@@ -1,5 +1,5 @@
 <?php
-while ($data = $shops->fetch())
+while ($data = $genres->fetch())
 {
     ?>
     <div>

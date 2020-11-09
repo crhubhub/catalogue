@@ -2,18 +2,37 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?=$pageTitle ?? 'Antiques Dealer'?> (public)</title><!--(public) is to del-->
+    <title><?= $pageTitle ?? 'Antiques Dealer' ?> (public)</title><!--(public) is to del-->
 </head>
 <body>
-<h1>Antiques Dealer</h1>
-<h2><?= $h2 ?? ' '?></h2>
-<?php
-if (isset($_GET['error'])) {
-    echo $_GET['error'];
-}
-echo $pageContent;
-?>
+<header>
+    <nav style="display: flex; flex-direction: row">
+        <div>
+            <h1>Antiques Dealer</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="?page=items">Articles</a></li>
+                <li><a href="?page=genres">Catégories</a></li>
+                <li><a href="?page=shops">Magasins</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <h2><?= $h2 ?? ' ' ?></h2>
+    <?php
+    if (isset($_GET['error'])) {
+        echo $_GET['error'];
+    }
+    echo $pageContent;
+    ?>
+</main>
+<footer>
+    <br><br><a href="?page=login" style="">Log In</a>
+</footer>
 </body>
 </html>
