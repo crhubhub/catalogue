@@ -44,6 +44,11 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-items.view.php';
         exit;
     }
+    if (($_GET['page']) === 'item') {
+        $item = getItemByReference($_GET['reference']);
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-item.view.php';
+    }
+
     if ($_GET['page'] === 'genres') {
         $genres = getGenres();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-genres.view.php';

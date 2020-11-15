@@ -21,6 +21,16 @@ function getItems()
     $req = $db->query('SELECT * FROM item');
     return $req;
 }
+function getItemByReference($reference) {
+    try {
+        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $req = $db->query("SELECT * FROM item WHERE reference = '$reference';");
+    var_dump($req);
+    return $req;
+}
 
 function getGenres()
 {

@@ -9,7 +9,7 @@ while ($data = $items->fetch())
             (Objet <?=$itemNb?>)
             <?= $data['name'] ?> (<?=$data['year']?>, <?=$data['country']?>)
             <br>
-            <em><a href="<?=$data['reference']?>">+ détails</a></em>
+            <em><a href="?page=item&reference=<?=$data['reference']?>">+ détails</a></em>
         </p>
     </div>
     <?php

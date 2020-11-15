@@ -47,7 +47,8 @@ function getShopById($id)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM shop WHERE ID = ' . $id . ';');
+    $req = $db->query("SELECT * FROM shop WHERE ID = '$id'");
+    var_dump($req);
     return $req;
 }
 
