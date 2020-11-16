@@ -3,7 +3,7 @@
 function getShops()
 {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+                $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -12,7 +12,7 @@ function getShops()
 }
 function countShops() {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+               $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -22,7 +22,7 @@ function countShops() {
 
 function countItems() {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+                $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -32,7 +32,7 @@ function countItems() {
 
 function countGenres() {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+               $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -43,7 +43,7 @@ function countGenres() {
 function getShopById($id)
 {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+               $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -55,7 +55,7 @@ function getShopById($id)
 function modifyShopById($id, $name, $phone, $city)
 {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+                $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
@@ -66,7 +66,7 @@ function modifyShopById($id, $name, $phone, $city)
 function getItems()
 {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=antiques_dealer;charset=utf8', 'root', '');
+               $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }

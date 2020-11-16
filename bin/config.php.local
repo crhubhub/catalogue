@@ -2,9 +2,11 @@
 
 // fill it up with your db infos!!
 
-const DB_HOST = '';
-const DB_USER = '';
+const DB_HOST = 'localhost';
+const DB_USER = 'root';
 const DB_PASSWORD = '';
 const DB_NAME = 'antiques_dealer';
-const DB_PORT = '';
-const DB_CHARSET = 'UTF-8';
+const DB_PORT = '3308';
+const DB_CHARSET = 'UTF8';
+
+const DB_CONFIG = 'mysql:host='.DB_HOST.';dbport='.DB_PORT.';dbname='.DB_NAME.';charset='.DB_CHARSET.'';
