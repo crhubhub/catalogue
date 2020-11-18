@@ -1,34 +1,81 @@
 html {
     scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
+
+}
+
+a {
+    text-decoration: none;
 }
 
 /************            HEADER STYLE           ************/
 
 
-
 header {
     background: #707070;
+    padding: 0.5em 1em;
 }
-header nav {
+
+header * {
     color: #FFF;
 }
 
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
+/******             le logo              ******/
 
+header #logo a img {
+    width: 145px;
+}
 
+/******             le nav              ******/
 
+header nav ul li {
+    list-style: none;
+}
+header nav ul li ~ li {
+    margin-left: 1em;
+}
+header nav ul li a em {
+    font-size: 0.8em;
+}
+header nav ul li a{
+    /*text-transform: uppercase;*/
+}
 
+/******             le titre              ******/
 
+header h1 {
+    font-size: 7em;
+    margin-left: 1em;
 
+}
+header h1 ~ h1 {
+    margin-left: 1.5em;
+    text-transform: uppercase;
+    font-weight: normal;
+}
 
+/******            l'accroche             ******/
 
+header #hook {
+    text-align: end;
+    margin-right: 5em;
+    margin-left: 0;
+    background: red;
+}
+header p {
 
-
+}
 
 
 
@@ -49,17 +96,5 @@ header nav {
 
 
 /************              MAIN STYLE             ************/
-
-
-
-
-
-
 /************           INSIDE MAIN STYLE         ************/
-
-
-
-
-
-
 /************            FOOTER STYLE           ************/
