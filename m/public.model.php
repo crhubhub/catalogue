@@ -7,7 +7,8 @@ function getItems()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM item');
+    $sql = "SELECT * FROM item";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -18,7 +19,8 @@ function getShops()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM shop');
+    $sql = "SELECT * FROM shop";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -30,7 +32,8 @@ function getItemByReference($reference)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query("SELECT * FROM item WHERE reference = '$reference';");
+    $sql = "SELECT * FROM item WHERE reference = '$reference'";
+    $req = $db->query($sql);
     var_dump($req);
     return $req;
 }
@@ -42,7 +45,8 @@ function getGenres()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM genre');
+    $sql = "SELECT * FROM genre";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -54,6 +58,7 @@ function getUserByLoginDatas($pseudo, $password)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query("SELECT * FROM user WHERE pseudo LIKE '" . $pseudo . "' AND password = " . $password);
+    $sql = "SELECT * FROM user WHERE pseudo LIKE '" . $pseudo . "' AND password = " . $password;
+    $req = $db->query($sql);
     return $req;
 }

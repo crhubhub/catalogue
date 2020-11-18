@@ -7,7 +7,8 @@ function getShops()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM shop');
+    $sql="SELECT * FROM shop";
+    $req = $db->query($sql);
     return $req;
 }
 function countShops() {
@@ -16,7 +17,8 @@ function countShops() {
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT COUNT(*) AS counted_shops FROM shop');
+    $sql="SELECT COUNT(*) AS counted_shops FROM shop";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -26,7 +28,8 @@ function countItems() {
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT COUNT(*) AS counted_items FROM item');
+    $sql="SELECT COUNT(*) AS counted_items FROM item";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -36,7 +39,8 @@ function countGenres() {
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT COUNT(*) AS counted_genres FROM genre');
+    $sql="SELECT COUNT(*) AS counted_genres FROM genre";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -47,7 +51,8 @@ function getShopById($id)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query("SELECT * FROM shop WHERE ID = '$id'");
+    $sql = "SELECT * FROM shop WHERE ID = '$id'";
+    $req = $db->query($sql);
     var_dump($req);
     return $req;
 }
@@ -59,7 +64,8 @@ function modifyShopById($id, $name, $phone, $city)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM shop WHERE ID = ' . $id . ';');
+    $sql = "SELECT * FROM shop WHERE ID = ' . $id . '";
+    $req = $db->query($sql);
     return $req;
 }
 
@@ -70,7 +76,8 @@ function getItems()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $req = $db->query('SELECT * FROM items');
+    $sql = "SELECT * FROM items";
+    $req = $db->query($sql);
     return $req;
 }
 
