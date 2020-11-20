@@ -1,3 +1,4 @@
+/************             GENERAL            ************/
 html {
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
@@ -8,17 +9,43 @@ html {
     padding: 0;
 
 }
-
+/************              DIVERS             ************/
 a {
     text-decoration: none;
 }
+.gold-txt {
+    color: #EBCFB2;
+}
+.italic-bold {
+font-weight: bolder;
+}
+
 
 /************            HEADER STYLE           ************/
 
-
+/************           normal header          ************/
 header {
     background: #707070;
-    padding: 0.5em 1em;
+    padding: 0.5em 3em 2em 3em;
+    height: 100vh;
+    max-height: 900px;
+}
+
+header * {
+    color: #FFF;
+}
+
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/************          smalled header         ************/
+header {
+    background: #707070;
+    padding: 0.5em 3em 2em 3em;
+    height: 100vh;
+    max-height: 900px;
 }
 
 header * {
@@ -31,10 +58,13 @@ header nav ul{
     justify-content: center;
 }
 
+
+
 /******             le logo              ******/
 
 header #logo a img {
     width: 145px;
+    margin-bottom: 2.5em;
 }
 
 /******             le nav              ******/
@@ -55,23 +85,37 @@ header nav ul li a{
 /******             le titre              ******/
 
 header h1 {
-    font-size: 7em;
-    margin-left: 1em;
+    font-size: 6.8em;
+    /*font-size: 5pc;*/
+    margin-left: 0.5em;
+    text-transform: uppercase;
 
 }
 header h1 ~ h1 {
-    margin-left: 1.5em;
-    text-transform: uppercase;
-    font-weight: normal;
+    margin-left: 1.2em;
+
+    /*font-weight: normal;*/
 }
 
 /******            l'accroche             ******/
 
-header #hook {
+header #support {
+    display: flex;
+    justify-content: end;
+    /*background: #8d8d8d;*/
+    margin-top: 5em;
+    margin-right: 9em;
+}
+header #support div h4 {
     text-align: end;
-    margin-right: 5em;
-    margin-left: 0;
-    background: red;
+    font-size: 2.2em;
+    font-weight: normal;
+}
+header #support div p {
+    margin-top: 0.55em;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 header p {
 
