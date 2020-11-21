@@ -4,6 +4,15 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
+#background {
+    position: fixed;
+    background: url("../img/home.png");
+    /*background: red;*/
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: -1;
+}
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +28,11 @@ a {
 .italic-bold {
 font-weight: bolder;
 }
-
+h3 {
+    font-size: 2.2em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
 
 /************            HEADER STYLE           ************/
 
@@ -73,12 +86,13 @@ header nav ul li {
     list-style: none;
 }
 header nav ul li ~ li {
-    margin-left: 1em;
+    margin-left: 1.2em;
 }
 header nav ul li a em {
     font-size: 0.8em;
 }
 header nav ul li a{
+    font-size: 1.2em;
     /*text-transform: uppercase;*/
 }
 
@@ -122,23 +136,72 @@ header p {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /************              MAIN STYLE             ************/
+main {
+    padding: 5em 3em 3em 3em;
+}
+/******                     wrapper                 ******/
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-column-gap: 2em;
+}
+.wrapper-nogap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0;
+}
+
+.box-x {
+    display: flex;
+    /*justify-content: space-between;*/
+}
+.h-left {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 3fr;
+    /*grid-column-gap: 0px;*/
+    grid-row-gap: 2em;
+}
+.h-left-nogap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 2fr;
+    /*grid-column-gap: 0px;*/
+    grid-row-gap: 0;
+}
+#h-right {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    /*grid-column-gap: 0px;*/
+    grid-row-gap: 31px;
+}
+
+#h-news {
+    background: blue;
+}
+#h-articles {
+    background: green;
+
+}
+#h-categories {
+    background: yellow;
+}
+#h-shops {
+    background: red;
+    min-height: 25em;
+}
+/******                     contact                 ******/
+#h-form {
+    margin-top: 4em;
+    background: #457B9D;
+    padding: 1em;
+}
+
+
+
+
+
 /************           INSIDE MAIN STYLE         ************/
 /************            FOOTER STYLE           ************/

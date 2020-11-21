@@ -1,0 +1,12 @@
+body {
+    padding: 2em 6em;
+    transition-duration: 600ms;
+    background: url("../img/home.png");
+}
+#background {
+    visibility: hidden;
+}
+main {
+    padding-left: 5em;
+    padding-right: 5em;
+}
