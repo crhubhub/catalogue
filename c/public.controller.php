@@ -54,6 +54,8 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
 
     if ($_GET['page'] === 'items') {
         $items = getItems();
+        $genres = getGenres();
+        $radicalsPrices = getRadicalsPrices();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-items.view.php';
         exit;
     }

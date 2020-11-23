@@ -23,6 +23,28 @@ function getShops()
     $req = $db->query($sql);
     return $req;
 }
+function getGenres()
+{
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $sql = "SELECT name FROM genre ORDER BY name";
+    $req = $db->query($sql);
+    return $req;
+}
+function getRadicalsPPrices()
+{
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $sql = "SELECT FLOOR(MIN(price)) as min, CEILING(MAX(price)) as max FROM item";
+    $req = $db->query($sql);
+    return $req;
+}
 
 
 function getItemByReference($reference)

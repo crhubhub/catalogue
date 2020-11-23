@@ -29,11 +29,15 @@ html {
     padding: 0;
 
 }
+.img-in-banderole ~ .img-in-banderole {
+    margin-left: 0.8em;
+}
 
 /************              DIVERS             ************/
-a, a:visited, a:active {
+a:active, a {
     text-decoration: none;
     color: white;
+    text-underline: none;
 }
 
 
@@ -72,6 +76,11 @@ h4 {
     width: 60%;
     display: block;
     margin: 2em auto
+}
+.dark-card {
+    background: #707070;
+    margin: 2em 0;
+    padding: 1em 2em;
 }
 
 /************            HEADER STYLE           ************/
@@ -288,8 +297,9 @@ main {
     color: black;
 }
 /************         SHOPS        ************/
-.one-shop {
-    background: #707070;
+.one-shop div {
+    display: flex;
+    justify-content: space-between;
 }
 
 

@@ -24,7 +24,7 @@
             <li><a href="?page=presentation">Présentation</a></li>
             <li><a href="?page=items">Catalogue<em> &#9660</em></a></li>
             <li><a href="?page=promotions">Promotions</a></li>
-            <li><a href="?page=shops#shop-box">Magasins</a></li>
+            <li><a href="?page=shops">Magasins</a></li>
             <li><a href="?page=home#h-form">Contact</a></li>
 
         </ul>
