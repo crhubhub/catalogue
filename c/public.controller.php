@@ -39,6 +39,19 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-shops.view.php';
         exit;
     }
+
+
+    if ($_GET['page'] === 'presentation') {
+        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-presentation.view.php';
+        exit;
+    }
+    if ($_GET['page'] === 'promotions') {
+//        $promos = getPromos();
+        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-promotions.view.php';
+        exit;
+    }
+
+
     if ($_GET['page'] === 'items') {
         $items = getItems();
         require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-items.view.php';

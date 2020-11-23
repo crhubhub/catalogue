@@ -18,7 +18,7 @@
 </div>
 
 <form action="" id="h-form" style="display: flex; flex-direction: column">
-    <h4>Contactez-nous</h4>
+    <h3>Contactez-nous</h3>
     <div class="box-x">
         <label for="name"></label>
         <input type="text" id="name" name="name" placeholder="Votre nom">
@@ -33,7 +33,7 @@
     </div>
 </form>
 <?php
-$pageTitle = 'Antiques Dealer - Bienvenue';
+$pageTitle = 'AD - Promotions';
 $h2 = 'Bienvenue';
 $pageContent = ob_get_clean();
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'public.template.php';

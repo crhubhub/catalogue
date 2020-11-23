@@ -13,36 +13,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,600&display=swap"
           rel="stylesheet">
-    <title><?= $pageTitle ?? 'Antiques Dealer' ?> (public)</title><!--(public) is to del-->
+    <title><?= $pageTitle ?? 'Antiques Dealer' ?></title><!--(public) is to del-->
 </head>
 <body>
 <div id="background"></div>
-<h2>
-    <?= $h2 ?? ' ' ?>
-</h2>
+<div id="background-dark"></div>
 <header>
     <nav>
         <ul>
-            <li><a href="">Présentation</a></li>
+            <li><a href="?page=presentation">Présentation</a></li>
             <li><a href="?page=items">Catalogue<em> &#9660</em></a></li>
-            <li><a href="">Promotions</a></li>
-            <li><a href="?page=shops">Magasins</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="?page=promotions">Promotions</a></li>
+            <li><a href="?page=shops#shop-box">Magasins</a></li>
+            <li><a href="?page=home#h-form">Contact</a></li>
 
         </ul>
     </nav>
     <div id="logo">
         <a href="?page=home"><img src="icon/AD@2x.png" alt=""></a>
     </div>
-    <h1>Antiques</h1>
-    <h1>Dealer</h1>
-    <div id="support">
-        <div>
-            <h4>"Trouvez la pièce d'<em class="italic-bold">exeption</em><br>et de <em
-                        class="italic-bold">collection</em> qui vous manque"</h4>
-            <p class="gold-txt"><a class="gold-txt" href="">Voir les articles disponibles <!--&#9670--></a></p>
-        </div>
-    </div>
+<!--    <a href="?page=home">-->
+<!--        <h1>Antiques</h1>-->
+<!--        <h1>Dealer</h1>-->
+<!--    </a>-->
+<!--    <div id="support">-->
+<!--        <div>-->
+<!--            <h4>"Trouvez la pièce d'<em class="italic-bold">exeption</em><br>et de <em-->
+<!--                        class="italic-bold">collection</em> qui vous manque"</h4>-->
+<!--            <p class="gold-txt"><a class="gold-txt" href="">Voir les articles disponibles</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
 
 </header>
 
@@ -55,7 +55,7 @@
     ?>
 </main>
 <footer>
-    <br><br><a href="?page=login" style="">Log In</a>
+    <a href="?page=login" style="">Connect as administrator</a>
 </footer>
 <script>
 

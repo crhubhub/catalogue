@@ -18,7 +18,7 @@ while ($data = $shops->fetch())
     <?php
 }
 $shops->closeCursor();
-$pageTitle = 'Magasins';
+$pageTitle = 'AD - Articles';
 $h2 = 'Gestion des Magasins';
 $pageContent = ob_get_clean();
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'admin.template.php';

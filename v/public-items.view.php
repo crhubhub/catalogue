@@ -15,7 +15,7 @@ while ($data = $items->fetch())
     <?php
 }
 $items->closeCursor();
-$pageTitle = 'Articles';
+$pageTitle = 'AD - Articles';
 $h2 = 'Liste des articles disponibles ('. $items->rowCount().')';
 $pageContent = ob_get_clean();
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'public.template.php';
