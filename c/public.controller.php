@@ -52,11 +52,12 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
     }
 
 
-    if ($_GET['page'] === 'items') {
+    if ($_GET['page'] === 'catalog') {
         $items = getItems();
         $genres = getGenres();
+        $prices = getRadicalsPrices();
         $radicalsPrices = getRadicalsPrices();
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-items.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-catalog.view.php';
         exit;
     }
     if (($_GET['page']) === 'item') {

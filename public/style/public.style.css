@@ -296,7 +296,16 @@ main {
     background: #EBCFB2;
     color: black;
 }
-/************         SHOPS        ************/
+/************             CATALOG           ************/
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.2em;
+    outline: none;
+    border-radius: 0.5em;
+}
+
+/************               SHOPS              ************/
 .one-shop div {
     display: flex;
     justify-content: space-between;

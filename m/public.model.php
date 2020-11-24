@@ -30,11 +30,11 @@ function getGenres()
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $sql = "SELECT name FROM genre ORDER BY name";
+    $sql = "SELECT DISTINCT type FROM item ORDER BY name";
     $req = $db->query($sql);
     return $req;
 }
-function getRadicalsPPrices()
+function getRadicalsPrices()
 {
     try {
         $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
@@ -57,18 +57,6 @@ function getItemByReference($reference)
     $sql = "SELECT * FROM item WHERE reference = '$reference'";
     $req = $db->query($sql);
     var_dump($req);
-    return $req;
-}
-
-function getGenres()
-{
-    try {
-        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
-    $sql = "SELECT * FROM genre";
-    $req = $db->query($sql);
     return $req;
 }
 
