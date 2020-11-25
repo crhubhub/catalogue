@@ -2,7 +2,13 @@
 
 require('../m/public.model.php');
 
-
+if (isset($_POST['public-category'])) {
+    $items = getItemsByDetails($_POST['public-category'], $_POST['min'], $_POST['max']);
+    $genres = getGenres();
+    $prices = getRadicalsPrices();
+    require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-catalog.view.php';
+    exit;
+}
 if (isset($url)) {
     var_dump($url);
 }
@@ -19,35 +25,35 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
 //        }
 //        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-login.view.php';
 //    }
-    if($_GET['page'] === 'login') {
+    if ($_GET['page'] === 'login') {
 
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
             $users = getUserByLoginDatas($_POST['pseudo'], $_POST['password']);
             if ($data = $users->fetch()) {
                 echo 'is admin';
-                $_SESSION['connect'] = (int) $data['id'];
+                $_SESSION['connect'] = (int)$data['id'];
                 header('location: ../public/');
             } else {
                 echo 'erreur de connection';
             }
 
         }
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-login.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-login.view.php';
     }
     if ($_GET['page'] === 'shops') {
         $shops = getShops();
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-shops.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-shops.view.php';
         exit;
     }
 
 
     if ($_GET['page'] === 'presentation') {
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-presentation.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-presentation.view.php';
         exit;
     }
     if ($_GET['page'] === 'promotions') {
 //        $promos = getPromos();
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-promotions.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-promotions.view.php';
         exit;
     }
 
@@ -56,24 +62,19 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         $items = getItems();
         $genres = getGenres();
         $prices = getRadicalsPrices();
-        $radicalsPrices = getRadicalsPrices();
-        require dirname(__DIR__) . DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-catalog.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-catalog.view.php';
         exit;
     }
     if (($_GET['page']) === 'item') {
         $item = getItemByReference($_GET['reference']);
-        require dirname(__DIR__) . DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-item.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-item.view.php';
     }
 
     if ($_GET['page'] === 'genres') {
         $genres = getGenres();
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'public-genres.view.php';
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-genres.view.php';
         exit;
-    }
-
-
-
-    else {
-        require dirname(__DIR__).DIRECTORY_SEPARATOR.'v'.DIRECTORY_SEPARATOR.'404.view.php';
+    } else {
+        require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . '404.view.php';
     }
 }

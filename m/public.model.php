@@ -12,6 +12,27 @@ function getItems()
     return $req;
 }
 
+function getItemsByDetails($categ, $min, $max)
+{
+    if ($categ == 'Choisissez une catégorie') {
+        $sql = "SELECT * FROM item WHERE price BETWEEN '$min' AND '$max'";
+    } else {
+        $sql = "SELECT * FROM item WHERE type = '$categ' AND price BETWEEN '$min' AND '$max'";
+    }
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $req = $db->query($sql);
+    if (($req->rowCount()) === 0) {
+        header(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'index.php');
+    };
+
+    return $req;
+}
+
 function getShops()
 {
     try {
@@ -23,6 +44,7 @@ function getShops()
     $req = $db->query($sql);
     return $req;
 }
+
 function getGenres()
 {
     try {
@@ -34,6 +56,7 @@ function getGenres()
     $req = $db->query($sql);
     return $req;
 }
+
 function getRadicalsPrices()
 {
     try {

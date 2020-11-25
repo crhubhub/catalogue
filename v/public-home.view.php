@@ -14,7 +14,6 @@
         <div id="h-shops"><a href=""><h3 class="lightened-txt">Magasins</h3></a></div>
     </div>
 
-
 </div>
 
 <form action="" id="h-form" style="display: flex; flex-direction: column">
