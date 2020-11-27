@@ -2,13 +2,13 @@
     <div>
         <h3 class="h-dark">Notre catalogue :</h3>
     </div>
-    <form action="" method="post" class="box-x" style="justify-content: space-between">
+    <form action="" method="post" class="box-x" style="justify-content: space-around">
         <div>
             <label>
                 <p>Catégorie :</p>
                 <select name="public-category">
 
-                    <option value="Choisissez une catégorie"><?=$_POST['categorie'] ?? "- Make a choice -"?></option>
+                    <option value="Choisissez une catégorie"><?= $_POST['public-category'] ?? "- Make a choice -" ?></option>
                     <?php
                     while ($data = $genres->fetch()) {
                         ?>
@@ -23,9 +23,9 @@
             $min = $data['min'];
             $max = $data['max'];
         }
-        if(isset($_POST['min'])) {
-            $min =  ($_POST['min']);
-            $max =  ($_POST['max']);
+        if (isset($_POST['min'])) {
+            $min = ($_POST['min']);
+            $max = ($_POST['max']);
         };
         $slice = (($max - $min) / 3);
         $step1 = ceil($min + $slice);
@@ -69,31 +69,85 @@
                 </div>
         </div>
         <div style="display: flex; flex-direction: column">
+            <label for="promo">
+                <input name="promo" type="checkbox" style="justify-content: space-between">
+                en promotion
+            </label>
+            <label for="new">
+                <input name="new" type="checkbox" style="justify-content: flex-end">
+                nouveauté
+            </label>
+        </div>
+
+        <div style="display: flex; flex-direction: column">
             <button type="submit" class="button1">Valider</button>
             <a href="?page=catalog" class="button2">Reset</a>
         </div>
 
     </form>
-    <div id="items-box">
-    </div>
 
+
+    <!--                ARTICLES CI-DESSOUS                   -->
+
+
+</div>
+<aside id="items-box">
     <?php
     $itemNb = 0;
     while ($data = $items->fetch()) {
         $itemNb++;
         ?>
-        <div class="dark-card">
-            <p>
-                (Objet <?= $itemNb ?>)
-                <?= $data['name'] ?> (<?= $data['year'] ?>, <?= $data['country'] ?>)
-                <br>
-                <em><a href="?page=item&reference=<?= $data['reference'] ?>">+ détails</a></em>
-            </p>
+        <div>
+
+
+            <div class="box-x promo">
+                <div>
+                    <!--            tri, promotions-->
+                    <?php if (1) : ?>
+                        <!--    AVEC date de fin-->
+
+                    <div class="promo-around">
+                        <div class="promo-display">
+                            <h4>-50 %</h4>
+                        </div>
+                        <div class="promo-details">
+                            <h6>du 6 au shh j ej jd </h6>
+                        </div>
+                    </div>
+                </div>
+                    <?php elseif (1) : ?>
+                    <!--     SANS date de fin -->
+
+                    <div class="promo-around">
+                        <div class="promo-display">
+                            <h4>-50 %</h4>
+                        </div>
+                    </div>
+                </div>
+                <?php else : ?>
+                    <div class="box-x promo">
+
+                    </div>
+                <?php endif ?>
+            </div>
+
+            <div class="dark-card item-card">
+
+                <h4><em><?= $itemNb ?></em>. <?= $data['name'] ?> (<?= $data['country'] ?>, <?= $data['year'] ?>)
+                </h4>
+                <h5>" <em><?= $data['description'] ?></em> "</h5>
+                <h4><?= $data['price'] ?> <em>€ TTC</em></h4>
+                <h4><?= $data['type'] ?> <span style="font-weight: lighter">/ Art Culinaire cru</span></h4>
+                <h4><em>(REF: <?= $data['reference'] ?>) <a class="gold-txt"
+                                                            href="?page=item&reference=<?= $data['reference'] ?>"><br>more
+                            détails</a></em></h4>
+            </div>
+        </div>
         </div>
         <?php
     }
     ?>
-</div>
+</aside>
 <?php
 $items->closeCursor();
 $pageTitle = 'AD - Articles';

@@ -4,6 +4,10 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
+.item-card * {
+    color: white;
+}
+
 #background {
     position: fixed;
     background: url("../img/home.png");
@@ -13,6 +17,7 @@ html {
     opacity: 0.5;
     z-index: -2;
 }
+
 #background-dark {
     position: fixed;
     top: 0;
@@ -29,6 +34,7 @@ html {
     padding: 0;
 
 }
+
 .img-in-banderole ~ .img-in-banderole {
     margin-left: 0.8em;
 }
@@ -54,14 +60,17 @@ h3 {
     text-transform: uppercase;
     color: #FFFFFF;
 }
+
 .h-dark {
     color: #707070;
 }
+
 h4 {
     font-size: 1.6em;
     /*text-transform: uppercase;*/
     color: #FFFFFF;
 }
+
 .centered-txt {
     margin-bottom: 0.6em;
     text-align: center;
@@ -72,11 +81,13 @@ h4 {
     margin-top: 0.4em;
     margin-left: 0.5em;
 }
+
 .centered-media {
     width: 60%;
     display: block;
     margin: 2em auto
 }
+
 .dark-card {
     background: #707070;
     margin: 2em 0;
@@ -96,11 +107,13 @@ header {
 header * {
     color: #FFF;
 }
+
 header {
     z-index: 1;
     position: sticky;
     top: 0;
 }
+
 header nav ul {
     display: flex;
     flex-direction: row;
@@ -296,6 +309,7 @@ main {
     background: #EBCFB2;
     color: black;
 }
+
 /************             CATALOG           ************/
 .slider {
     -webkit-appearance: none;
@@ -304,9 +318,41 @@ main {
     outline: none;
     border-radius: 0.5em;
 }
+
 .sliiide div {
     font-size: 0.65em;
     color: #707070;
+}
+
+.promo {
+    justify-content: flex-end;
+    border: #457B9D solid 3px;
+
+}
+
+.promo-around {
+    height: 3em;
+    min-width: 14em;
+    position: relative;
+    top: 3em;
+    left: -2em;
+}
+
+.promo-display {
+    height: 80%;
+    background: #E63946;
+    padding-top: 0.3em;
+}
+.promo-display h4 {
+    text-align: center;
+    margin: auto;
+}
+
+.promo-details h6{
+    /*height: 20%;*/
+    background: #457B9D;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 /************               SHOPS              ************/
@@ -314,6 +360,7 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
 .button1 {
     display: block;
     width: 115px;
@@ -326,6 +373,7 @@ main {
     font-weight: bold;
     line-height: 25px;
 }
+
 .button2 {
     display: block;
     width: 115px;
@@ -340,6 +388,18 @@ main {
 }
 
 
+#items-box {
+    margin-top: 3em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+
+
+.item-card {
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+}
 
 
 /************            FOOTER STYLE           ************/
@@ -348,5 +408,5 @@ footer {
     padding: 1.5em 0;
     /*margin-bottom: 2em;*/
     text-align: center;
-    background: rgba(112,112,112, 0.6);
+    background: rgba(112, 112, 112, 0.6);
 }

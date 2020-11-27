@@ -1,3 +1,7 @@
-/*main {*/
-/*    background: red;*/
-/*}*/
+header {
+    height: 7em;
+}
+
+#items-box {
+    grid-template-columns: 1fr 1fr;
+}
