@@ -22,8 +22,8 @@
     <nav>
         <ul>
             <li><a href="?page=presentation">Présentation</a></li>
-            <li><a href="?page=catalog">Catalogue<em> &#9660</em></a></li>
-            <li><a href="?page=promotions">Promotions</a></li>
+            <li><a href="?page=catalog&">Catalogue<em> &#9660</em></a></li>
+            <li><a href="?page=promos&">Promotions</a></li>
             <li><a href="?page=shops">Magasins</a></li>
             <li><a href="?page=home#h-form">Contact</a></li>
 

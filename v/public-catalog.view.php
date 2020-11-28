@@ -8,7 +8,8 @@
                 <p>Catégorie :</p>
                 <select name="public-category">
 
-                    <option value="Choisissez une catégorie"><?= $_POST['public-category'] ?? "- Make a choice -" ?></option>
+                    <option value="Choisissez une catégorie"
+                            style="background: lightgreen"><?= $_POST['public-category'] ?? " - Make a choice - " ?></option>
                     <?php
                     while ($data = $genres->fetch()) {
                         ?>
@@ -88,8 +89,9 @@
 
 
     <!--                ARTICLES CI-DESSOUS                   -->
-
-
+    <?php if ($totalItems == 0) : ?>
+    <h4 style="background: darkorange; width: 60%; text-align: center; margin: auto">Aucun article trouvé</h4>
+    <?php endif ?>
 </div>
 <aside id="items-box">
     <?php
@@ -97,51 +99,67 @@
     while ($data = $items->fetch()) {
         $itemNb++;
         ?>
+        <script>var promo = 0;</script>
         <div>
 
 
             <div class="box-x promo">
                 <div>
                     <!--            tri, promotions-->
-                    <?php if (1) : ?>
-                        <!--    AVEC date de fin-->
+                    <?php if ((isset($data['end_date']) && ($data['end_date'] != null))) : ?>
+                    <!--                    --><?php //if (0) :?>
+                    <!--    AVEC date de fin-->
 
                     <div class="promo-around">
                         <div class="promo-display">
-                            <h4>-50 %</h4>
+                            <h4>date fin</h4>
+                            <script>
+                                promo = 30;
+                            </script>
                         </div>
                         <div class="promo-details">
-                            <h6>du 6 au shh j ej jd </h6>
+                            <h6>jusqu'au <?= $data['end_date'] ?></h6>
                         </div>
                     </div>
                 </div>
-                    <?php elseif (1) : ?>
-                    <!--     SANS date de fin -->
+                <!--                --><?php //elseif ) : ?>
+                <?php elseif (isset($data['end_date']) && ($data['end_date'] == null)) : ?>
+                <!--                --><?php //elseif (0) : ?>
+                <!--     SANS date de fin -->
 
-                    <div class="promo-around">
-                        <div class="promo-display">
-                            <h4>-50 %</h4>
-                        </div>
+                <div class="promo-around">
+                    <div class="promo-display">
+                        <h4><?= $data['end_date'] ?></h4>
                     </div>
                 </div>
-                <?php else : ?>
-                    <div class="box-x promo">
-
-                    </div>
-                <?php endif ?>
             </div>
-
-            <div class="dark-card item-card">
-
-                <h4><em><?= $itemNb ?></em>. <?= $data['name'] ?> (<?= $data['country'] ?>, <?= $data['year'] ?>)
-                </h4>
-                <h5>" <em><?= $data['description'] ?></em> "</h5>
-                <h4><?= $data['price'] ?> <em>€ TTC</em></h4>
-                <h4><?= $data['type'] ?> <span style="font-weight: lighter">/ Art Culinaire cru</span></h4>
-                <h4><em>(REF: <?= $data['reference'] ?>) <a class="gold-txt"
-                                                            href="?page=item&reference=<?= $data['reference'] ?>"><br>more
-                            détails</a></em></h4>
+            <?php else : ?>
+            <!--                SANS PROMO              -->
+            <div class="promo-around">
+                <h4>ELSE:</h4>
             </div>
+        </div>
+    <?php endif ?>
+        </div>
+
+        <div class="dark-card item-card">
+
+            <h4><em><?= $itemNb ?></em>. <?= $data['name'] ?> (<?= $data['country'] ?>, <?= $data['year'] ?>)
+            </h4>
+            <h5>" <em><?= $data['description'] ?></em> "</h5>
+            <h4><?= $data['price'] ?> <em>€ TTC</em>
+                <script>
+                    if (promo != 0) {
+                        var newPrice = (<?= $data['price'] ?> - 1);
+                        document.write(newPrice);
+                    }
+                </script>
+            </h4>
+            <h4><?= $data['type'] ?> <span style="font-weight: lighter">/ Art Culinaire cru</span></h4>
+            <h4><em>(REF: <?= $data['reference'] ?>) <a class="gold-txt"
+                                                        href="?page=item&reference=<?= $data['reference'] ?>"><br>more
+                        détails</a></em></h4>
+        </div>
         </div>
         </div>
         <?php
