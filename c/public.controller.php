@@ -1,6 +1,9 @@
 <?php
 
 require('../m/public.model.php');
+$totalItemsNormal = countItems()->rowCount();
+$totalItemsPromo = countItemsWithPromo()->rowCount();
+$itemsPerPage = 6;
 
 if (isset($_POST['public-category'])) {
     $items = getItemsByDetails($_POST['public-category'], $_POST['min'], $_POST['max']);
@@ -52,11 +55,19 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-presentation.view.php';
         exit;
     }
+
+
     if ($_GET['page'] === 'promos') {
-        $items = getItemsWithPromo();
-        $totalItems = getItemsWithPromo()->rowCount();
+        $totalItems = $totalItemsPromo;
+        $totalPages = ((int)($totalItems / $itemsPerPage) + 1);
         $currentPage = (int)($_GET['pagi'] ?? 1);
 //        if ($currentPage === 0) { throw new Exception('num de page invalide');};
+        //        préparation du OFFSET :
+        $offset = ($currentPage - 1) * $itemsPerPage;
+
+        $items = getItemsWithOffsetAndPromo($offset, $itemsPerPage);
+
+
         $genres = getGenres();
         $prices = getRadicalsPrices();
         require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-catalog.view.php';
@@ -65,10 +76,15 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
 
 
     if ($_GET['page'] === 'catalog') {
-        $items = getItems();
-        $totalItems = getItems()->rowCount();
+        $totalItems = $totalItemsNormal;
+        $totalPages = ((int)($totalItemsNormal / $itemsPerPage) + 1);
+
         $currentPage = (int)($_GET['pagi'] ?? 1);
 //        if ($currentPage === 0) { throw new Exception('num de page invalide');};
+        //        préparation du OFFSET :
+        $offset = ($currentPage - 1) * $itemsPerPage;
+
+        $items = getItemsWithOffset($offset, $itemsPerPage);
         $genres = getGenres();
         $prices = getRadicalsPrices();
         require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'v' . DIRECTORY_SEPARATOR . 'public-catalog.view.php';

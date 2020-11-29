@@ -90,7 +90,7 @@
 
     <!--                ARTICLES CI-DESSOUS                   -->
     <?php if ($totalItems == 0) : ?>
-    <h4 style="background: darkorange; width: 60%; text-align: center; margin: auto">Aucun article trouvé</h4>
+        <h4 style="background: darkorange; width: 60%; text-align: center; margin: auto">Aucun article trouvé</h4>
     <?php endif ?>
 </div>
 <aside id="items-box">
@@ -166,6 +166,22 @@
     }
     ?>
 </aside>
+<?php if($totalPages > 1) :?>
+<div style="text-align: center; color: #FFFFFF; margin: 1em">Page actuelle : <?=$currentPage?></div>
+
+    <div style="text-align: center">
+        <?php
+        for ($i = 1; $i <= $totalPages; $i++) : ?>
+            <?php if ($i == $currentPage) : ?>
+                <a><?= $i ?></a>
+            <?php else : ?>
+                <a style="background: #EBCFB2; border-radius: 5em; color: #FFFFFF; padding: 0 0.5em; margin: 0.5em" href="?page=<?= $_GET['page'] ?>&pagi=<?= $i ?>"><?= $i ?></a>
+            <?php endif ?>
+        <?php endfor ?>
+    </div>
+
+<?php endif?>
+
 <?php
 $items->closeCursor();
 $pageTitle = 'AD - Articles';

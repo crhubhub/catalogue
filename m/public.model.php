@@ -1,6 +1,6 @@
 <?php
 
-function getItems()
+function countItems()
 {
     try {
         $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
@@ -19,7 +19,7 @@ function getItems()
     $req = $db->query($sql);
     return $req;
 }
-function getItemsWithPromo()
+function countItemsWithPromo()
 {
     try {
         $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
@@ -33,7 +33,48 @@ function getItemsWithPromo()
 
 //    with promo
 //    $sql = "SELECT i.*, p.* FROM item i NATURAL JOIN promotion p;";
+
+
     $sql = "SELECT * FROM item i INNER JOIN promotion p ON i.id = p.item_id;";
+//    $sql = "SELECT * from item;";
+    $req = $db->query($sql);
+    return $req;
+}
+function getItemsWithOffset($offset, $itemsPerPage)
+{
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+
+//with genre
+//    $sql = "SELECT item.*, genre.name FROM item INNER JOIN genre INNER JOIN item_genre
+//ON item_genre.item_id = item.id && item_genre.genre_id = genre.id;";
+
+//    with promo
+//    $sql = "SELECT i.*, p.* FROM item i NATURAL JOIN promotion p;";
+//    $sql = "SELECT * FROM item i INNER JOIN promotion p ON i.id = p.item_id;";
+    $sql = "SELECT * from item LIMIT $offset, $itemsPerPage;";
+    $req = $db->query($sql);
+    return $req;
+}
+
+function getItemsWithOffsetAndPromo($offset, $itemsPerPage)
+{
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+
+//with genre
+//    $sql = "SELECT item.*, genre.name FROM item INNER JOIN genre INNER JOIN item_genre
+//ON item_genre.item_id = item.id && item_genre.genre_id = genre.id;";
+
+//    with promo
+//    $sql = "SELECT i.*, p.* FROM item i NATURAL JOIN promotion p;";
+    $sql = "SELECT * FROM item i INNER JOIN promotion p ON i.id = p.item_id LIMIT $offset, $itemsPerPage;";
 //    $sql = "SELECT * from item;";
     $req = $db->query($sql);
     return $req;

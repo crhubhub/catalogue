@@ -15,8 +15,9 @@ while ($data = $shops->fetch())
             <em><a href="#">Supprimer</a></em>
         </p>
     </div>
-    <?php
-}
+    <?php } ?>
+    <a href="?page=add-shop">Ajouter un Magasin</a>
+<?php
 $shops->closeCursor();
 $pageTitle = 'Magasins';
 $h2 = 'Gestion des Magasins';

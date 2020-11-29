@@ -9,11 +9,10 @@ if (isset($url)) {
 
 //remplacer par switch ?
 
-
+$countedShops = countShops();
+$countedItems = countItems();
+$countedGenres = countGenres();
 if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
-    $countedShops = countShops();
-    $countedItems = countItems();
-    $countedGenres = countGenres();
     require('../v/admin-home.view.php');
 } else  {
 
@@ -26,6 +25,19 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         $shop = getShopById($_GET['id']);
         require('../v/admin-shop.view.php');
     }
+    if (($_GET['page']) === 'add-shop') {
+        $shop = getShopById($_GET['id']);
+
+        require('../v/admin-add_shop.view.php');
+    }
+
+
+
+
+
+
+
+
     if (($_GET['page']) === 'genres') {
         $shops = getShops();
         require('../v/admin-genres.view.php');

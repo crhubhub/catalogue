@@ -23,7 +23,6 @@
     </nav>
 </header>
 <main>
-    <h5 style="color: forestgreen">Connecté en tant qu'admin</h5>
     <h2><?= $h2 ?? '' ?></h2>
     <?php
     if (isset($_GET['error'])) {
@@ -34,7 +33,7 @@
 </main>
 <footer>
     <br>
-    <a href="?page=end-session"> -> Je me déconnecte</a>
+    <a href="?page=end-session">&#9658 QUITTER LE MODE ADMIN</a>
 </footer>
 </body>
 </html>
