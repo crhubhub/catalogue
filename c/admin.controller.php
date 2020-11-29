@@ -14,7 +14,7 @@ $countedItems = countItems();
 $countedGenres = countGenres();
 if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
     require('../v/admin-home.view.php');
-} else  {
+} else {
 
 
     if (($_GET['page']) === 'shops') {
@@ -25,25 +25,33 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         $shop = getShopById($_GET['id']);
         require('../v/admin-shop.view.php');
     }
-    if (($_GET['page']) === 'add-shop') {
-        $shop = getShopById($_GET['id']);
+    if (($_GET['page']) === 'modifyShop') {
+        $shop = modifyShopById($_POST['id'], $_POST['name'], $_POST['street'], $_POST['number_street'], $_POST['postal'], $_POST['city'], $_POST['country'], $_POST['phone'], $_POST['vta'], $_POST['latitude'], $_POST['longitude']);
+        echo 'les données ont été mises à jour<br>';
+        echo '<a href="?shops">Retour à l\'accueil</a>';
+        require('../v/admin-shop.view.php');
+    }
+    if (($_GET['page']) === 'delete-shop') {
+        $shop = deleteShop($_GET['id']);
+        $_GET['page'] = 'shops';
+        echo 'Magasin supprimé<br>';
+        echo '<a href="?page=shops">Retour aux magasins</a>';
 
+    }
+    if (($_GET['page']) === 'add-shop') {
+        if (isset($_POST['name'])) {
+            $shop = addShop($_POST['name'], $_POST['street'], $_POST['number_street'], $_POST['postal'], $_POST['city'], $_POST['country'], $_POST['phone'], $_POST['vta']);
+            echo 'Magasin ajouté<br>';
+        }
         require('../v/admin-add_shop.view.php');
     }
 
-
-
-
-
-
-
-
     if (($_GET['page']) === 'genres') {
-        $shops = getShops();
+        $genres = getgenres();
         require('../v/admin-genres.view.php');
     }
     if (($_GET['page']) === 'genre') {
-        $shop = getShopById($_GET['id']);
+        $genre = getShopById($_GET['id']);
         require('../v/admin-genre.view.php');
     }
     if (($_GET['page']) === 'items') {
@@ -58,22 +66,6 @@ if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
         session_destroy();
         header('location: ../public');
     }
-    if (($_GET['page']) === 'modifyShop') {
 
-//        TODO: modifier requete SQL dans modifyShopById pour modification
-        $shop = modifyShopById($_GET['id'], $_POST['name'], $_POST['phone'], $_POST['city']);
-        echo '<a href="?shops">Voir les shops</a>';
-        echo 'les données ont été mises à jour';
-        require('../v/admin-shop.view.php');
-    }
-//if ('wantToSeeCrudForItems_url') {
-//    $items = getItems();
-//    require('../v/admin-items.view.php');
-//}
-
-
-//$shop = getShopById(1);
-//require('../v/admin-shop.view.php');
 }
-
 

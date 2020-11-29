@@ -1,6 +1,6 @@
+<a href="?page=add-shop">Ajouter un Magasin</a>
 <?php
-while ($data = $shops->fetch())
-{
+while ($data = $shops->fetch()) {
     ?>
     <div>
         <h3>
@@ -9,14 +9,17 @@ while ($data = $shops->fetch())
         </h3>
 
         <p>
-            <?= $data['street_name']?>, <?= $data['street_number']?>.<br><?= $data['city']?>
-            <br />
-            <em><a href="?page=shop&id=<?=$data['id']?>">Modifier</a></em>
-            <em><a href="#">Supprimer</a></em>
+            <?= $data['street_name'] ?>, <?= $data['street_number'] ?>.<br><?= $data['city'] ?>
+            <br/>
+            <button><em><a href="?page=shop&id=<?= $data['id'] ?>">Modifier</a></em></button>
+        <form method="POST" action="?page=delete-shop&id=<?= $data['id'] ?>"
+              onSubmit="return confirm('Voulez-vous vraiment supprimer le magasin \n\n <?=strtoupper($data['name']);?> \n\n ???');">
+            <button class="btn btn-danger" type="submit">Supprimer</button>
+        </form>
+
         </p>
     </div>
-    <?php } ?>
-    <a href="?page=add-shop">Ajouter un Magasin</a>
+<?php } ?>
 <?php
 $shops->closeCursor();
 $pageTitle = 'Magasins';
