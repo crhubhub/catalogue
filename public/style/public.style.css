@@ -406,7 +406,20 @@ main {
     font-size: 0.8em;
     margin-bottom: 0.5em;
 }
-
+.red-price {
+    text-decoration: line-through;
+    color: red;
+}
+.new-price-tag {
+    border: orange 3px solid;
+    margin: auto;
+    width: auto;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    z-index: 2;
+    text-decoration: none;
+    color: #FFFFFF;
+}
 
 /************            FOOTER STYLE           ************/
 footer {

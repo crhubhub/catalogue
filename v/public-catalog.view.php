@@ -112,7 +112,7 @@
 
                     <div class="promo-around">
                         <div class="promo-display">
-                            <h4>date fin</h4>
+                            <h4>-20%</h4>
                             <script>
                                 promo = 30;
                             </script>
@@ -143,22 +143,31 @@
         </div>
 
         <div class="dark-card item-card">
-
+<div>
             <h4><em><?= $itemNb ?></em>. <?= $data['name'] ?> (<?= $data['country'] ?>, <?= $data['year'] ?>)
             </h4>
             <h5>" <em><?= $data['description'] ?></em> "</h5>
-            <h4><?= $data['price'] ?> <em>€ TTC</em>
+            <h4 class="<?php if(isset($data['start_date'])) :?>
+                red-price
+<?php endif;?>"><?= $data['price'] ?> <em>€</em>
+                <?php if(isset($data['start_date'])) :?>
+
+
+                <h4 class="new-price-tag">Nouveau prix :
                 <script>
                     if (promo != 0) {
-                        var newPrice = (<?= $data['price'] ?> - 1);
+                        var newPrice = (<?= $data['price'] ?> * 0.8);
                         document.write(newPrice);
                     }
-                </script>
+                </script> €</h4>
+                <?php endif;?>
             </h4>
             <h4><?= $data['type'] ?> <span style="font-weight: lighter">/ Art Culinaire cru</span></h4>
             <h4><em>(REF: <?= $data['reference'] ?>) <a class="gold-txt"
                                                         href="?page=item&reference=<?= $data['reference'] ?>"><br>more
                         détails</a></em></h4>
+</div>
+            <img style="width: 20vw; height: 14vw" src="img/item/default_item.jpg" alt="">
         </div>
         </div>
         </div>
