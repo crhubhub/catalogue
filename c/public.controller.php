@@ -4,7 +4,10 @@ require('../m/public.model.php');
 $totalItemsNormal = countItems()->rowCount();
 $totalItemsPromo = countItemsWithPromo()->rowCount();
 $itemsPerPage = 6;
-
+if (isset($_POST['contact-name']) && isset($_POST['email']) && isset($_POST['subject'])) {
+    echo 'Message envoyé';
+    sendMessage($_POST['contact-name'], $_POST['email'], $_POST['subject']);
+}
 if (isset($_POST['public-category'])) {
     $items = getItemsByDetails($_POST['public-category'], $_POST['min'], $_POST['max']);
     $totalItems = getItemsByDetails($_POST['public-category'], $_POST['min'], $_POST['max'])->rowCount();

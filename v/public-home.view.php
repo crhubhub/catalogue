@@ -16,11 +16,11 @@
 
 </div>
 
-<form action="" id="h-form" style="display: flex; flex-direction: column">
+<form action="" method="post" id="h-form" style="display: flex; flex-direction: column">
     <h4>Contactez-nous</h4>
     <div class="box-x">
-        <label for="name"></label>
-        <input type="text" id="name" name="name" placeholder="Votre nom">
+        <label for="contact-name"></label>
+        <input type="text" id="contact-name" name="contact-name" placeholder="Votre nom">
 
         <label for="email"></label>
         <input type="email" id="email" name="email" placeholder="Votre email">
