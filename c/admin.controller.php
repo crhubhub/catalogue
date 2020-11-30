@@ -1,39 +1,59 @@
 <?php
 
 require('../m/admin.model.php');
-
-
-if (isset($url)) {
-    var_dump($url);
-}
-
-//remplacer par switch ?
-
+$shopDir = "img/shop/";
+$shopDefaultImageName = 'default_shop.jpg';
+$itemDir = "img/item/";
+$itemDefaultImageName = 'default_item.jpg';
 $countedShops = countShops();
 $countedItems = countItems();
 $countedGenres = countGenres();
+
 if ((empty($_GET['page'])) || ($_GET['page'] === 'home')) {
     require('../v/admin-home.view.php');
 } else {
 
-/*******************************************************/
-/*                      ARTICLES                        /
-/*******************************************************/
+    /*******************************************************/
+    /*                      ARTICLES                        /
+    /*******************************************************/
 
 
     if (($_GET['page']) === 'items') {
-        $shops = getShops();
+        $items = getItems();
         require('../v/admin-items.view.php');
     }
+
     if (($_GET['page']) === 'item') {
-        $shop = getShopById($_GET['id']);
+        $item = getItemById($_GET['id']);
         require('../v/admin-item.view.php');
     }
+
+
     if (($_GET['page']) === 'end-session') {
         session_destroy();
         header('location: ../public');
     }
 
+    if (($_GET['page']) === 'modifyItem') {
+        $item = modifyItemById($_POST['id'], $_POST['name'], $_POST['reference'], $_POST['year'], $_POST['country'], $_POST['price'], $_POST['proof_of_tracing'], $_POST['type'], $_POST['material'], $_POST['description'], $_POST['height'], $_POST['width'], $_POST['depth'], $_POST['good_condition'], $_POST['delivery_possible'], $_POST['shop_id'], $_POST['seller_id']);
+        echo 'les données ont été mises à jour<br>';
+        echo '<a href="?page=items">Retour aux Articles</a>';
+        require('../v/admin-item.view.php');
+    }
+    if (($_GET['page']) === 'delete-item') {
+        $item = deleteItem($_GET['id']);
+        echo 'Article supprimé<br>';
+        echo '<a href="?page=items">Retour aux Articles</a>';
+
+    }
+    if (($_GET['page']) === 'add-item') {
+        if (isset($_POST['name'])) {
+            $item = addItem($_POST['name'], $_POST['reference'], $_POST['year'], $_POST['country'], $_POST['price'], $_POST['proof_of_tracing'], $_POST['type'], $_POST['material'], $_POST['description'], $_POST['height'], $_POST['width'], $_POST['depth'], $_POST['good_condition'], $_POST['delivery_possible'], $_POST['shop_id'], $_POST['seller_id']);
+            echo 'Article ajouté<br>';
+            echo '<a href="?page=items">Retour aux Articles</a>';
+        }
+        require('../v/admin-add_item.view.php');
+    }
 }
 
 /********************************************************/
@@ -55,7 +75,6 @@ if (($_GET['page']) === 'modifyGenre') {
 }
 if (($_GET['page']) === 'delete-genre') {
     $genre = deleteShop($_GET['id']);
-//        $_GET['page'] = 'genres';
     echo 'Catégorie supprimés<br>';
     echo '<a href="?page=genres">Retour aux Catégories</a>';
 
@@ -93,8 +112,18 @@ if (($_GET['page']) === 'delete-shop') {
 
 }
 if (($_GET['page']) === 'add-shop') {
+    if (isset($_FILES['image'])) {
+        try {
+            $shopDefaultImageName = addImageToNewShop($_FILES['image'], $dir);
+        } catch (Exception $e) {
+        }
+    }else {
+        $shopDefaultImageName = 'def_shop.jpg';
+        }
+
+
     if (isset($_POST['name'])) {
-        $shop = addShop($_POST['name'], $_POST['street'], $_POST['number_street'], $_POST['postal'], $_POST['city'], $_POST['country'], $_POST['phone'], $_POST['vta'], $_POST['latitude'], $_POST['longitude']);
+        $shop = addShop($_POST['name'], $_POST['street'], $_POST['number_street'], $_POST['postal'], $_POST['city'], $_POST['country'], $_POST['phone'], $_POST['vta'], $_POST['latitude'], $_POST['longitude'], $shopDefaultImageName);
         echo 'Magasin ajouté<br>';
     }
     require('../v/admin-add_shop.view.php');

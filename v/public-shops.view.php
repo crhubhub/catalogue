@@ -19,11 +19,12 @@
                 <h4 style="opacity: 0.7; font-size: 1.1em"><em>tva : <?= $data['vta'] ?></em></h4>
             </div>
             <div style="width: 35vw; height: 22vw; background: #EBCFB2">
-
+                <img style="width:50%; height: 45%; margin-top: 34.5%" src="img/shop/<?=$data['image']?? 'default_shop.jpg' ?>" alt="">
             </div>
         </div>
+        <h5 style="color: #FFFFFF">Les articles disponibles :</h5>
         <div style=" margin-top:1em; height: 7vw; display: flex; justify-content: flex-start;  border: /*#222222 1px solid*/">
-            <img src="img/samples/bocaux.jpg" class="img-in-banderole" alt=""><img src="img/samples/bocaux.jpg" class="img-in-banderole" alt=""><img src="img/samples/bocaux.jpg" alt="" class="img-in-banderole">  ici      <- images d'articles dispos
+            <img src="img/item/default_item.jpg" class="img-in-banderole" alt="">
         </div>
     </div>
 </div>
