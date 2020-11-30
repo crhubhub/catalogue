@@ -1,6 +1,8 @@
 <?php
 
-
+/*******************************************************/
+/*                      ARTICLES                        /
+/*******************************************************/
 function countItems()
 {
     try {
@@ -12,7 +14,73 @@ function countItems()
     $req = $db->query($sql);
     return $req;
 }
+function getItems()
+{
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $sql = "SELECT * FROM items";
+    $req = $db->query($sql);
+    return $req;
+}
 
+function getItemById($id)
+{
+    try {
+        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+    $sql = "SELECT * FROM item WHERE id = '$id'";
+    $req = $db->query($sql);
+    return $req;
+}
+//
+//function modifyItemById($id, $name, $reference, $year, $country, $price, $proof_of_tracing, $type, $material, $description, $height, $width, $depth, $good_condition, $delivery_possible, $shop_id)
+//{
+//    try {
+//        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+//    } catch (Exception $e) {
+//        die('Erreur : ' . $e->getMessage());
+//    }
+//    $sql = "UPDATE genre SET name = '$name', native_country = '$native_country', from_year = $from_year, to_year = $to_year, about = '$about' WHERE id = $id";
+//    var_dump($sql);
+//    $req = $db->query($sql);
+//    return $req;
+//}
+//
+//function deleteItem($id)
+//{
+//    try {
+//        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+//    } catch (Exception $e) {
+//        die('Erreur : ' . $e->getMessage());
+//    }
+//    $sql = "DELETE FROM genre WHERE id = $id";
+//    var_dump($sql);
+//    $req = $db->query($sql);
+//    return $req;
+//}
+//
+//function addItem($name, $native_country, $from_year, $to_year, $about)
+//{
+//    try {
+//        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
+//    } catch (Exception $e) {
+//        die('Erreur : ' . $e->getMessage());
+//    }
+////    $sql = "INSERT INTO shop VALUES name = '$name', street_name = '$street_name', street_number = $num_street, postal_code = $postal, city = '$city', country = '$country', phone = '$phone', vta = $vta";
+//    $sql = "INSERT INTO genre (name, native_country, from_year, to_year, about) VALUES ('$name', '$native_country', $from_year, $to_year, '$about');";
+//    var_dump($sql);
+//    $req = $db->query($sql);
+//    return $req;
+//}
+
+/********************************************************/
+/*                     CATEGORIES                        /
+/********************************************************/
 function countGenres()
 {
     try {
@@ -44,7 +112,7 @@ function getGenreById($id)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $sql = "SELECT * FROM shop WHERE ID = '$id'";
+    $sql = "SELECT * FROM genre WHERE id = '$id'";
     $req = $db->query($sql);
     return $req;
 }
@@ -56,7 +124,8 @@ function modifyGenreById($id, $name, $native_country, $from_year, $to_year, $abo
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $sql = "UPDATE shop SET name = '$name', native_country = '$native_country', from_year = $from_year, to_year = $to_year, about = '$about'";
+    $sql = "UPDATE genre SET name = '$name', native_country = '$native_country', from_year = $from_year, to_year = $to_year, about = '$about' WHERE id = $id";
+    var_dump($sql);
     $req = $db->query($sql);
     return $req;
 }
@@ -82,29 +151,16 @@ function addGenre($name, $native_country, $from_year, $to_year, $about)
         die('Erreur : ' . $e->getMessage());
     }
 //    $sql = "INSERT INTO shop VALUES name = '$name', street_name = '$street_name', street_number = $num_street, postal_code = $postal, city = '$city', country = '$country', phone = '$phone', vta = $vta";
-    $sql = "INSERT INTO shop (name, native_country, from_year, to_year, about) VALUES ('$name', '$native_country', $from_year, $to_year, '$about';";
+    $sql = "INSERT INTO genre (name, native_country, from_year, to_year, about) VALUES ('$name', '$native_country', $from_year, $to_year, '$about');";
     var_dump($sql);
     $req = $db->query($sql);
     return $req;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*******************************************************/
+/*                      MAGASINS                        /
+/*******************************************************/
 
 function countShops()
 {
@@ -161,21 +217,20 @@ function deleteShop($id)
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-    $sql = "DELETE FROM shop WHERE id = $id";
+    $sql = "DELETE FROM genre WHERE id = $id";
     var_dump($sql);
     $req = $db->query($sql);
     return $req;
 }
 
-function addShop($name, $street_name, $num_street, $postal, $city, $country, $phone, $vta)
+function addShop($name, $street_name, $num_street, $postal, $city, $country, $phone, $vta, $latitude, $longitude)
 {
     try {
         $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }
-//    $sql = "INSERT INTO shop VALUES name = '$name', street_name = '$street_name', street_number = $num_street, postal_code = $postal, city = '$city', country = '$country', phone = '$phone', vta = $vta";
-    $sql = "INSERT INTO shop (name, street_name, street_number, postal_code, city, country, phone, vta) VALUES ('$name', '$street_name', $num_street, $postal, '$city', '$country', '$phone', $vta);";
+    $sql = "INSERT INTO shop (name, street_name, street_number, postal_code, city, country, phone, vta) VALUES ('$name', '$street_name', $num_street, $postal, '$city', '$country', '$phone', $vta, $latitude, $longitude);";
     var_dump($sql);
     $req = $db->query($sql);
     return $req;
@@ -220,16 +275,3 @@ function modifyShopByIdSECURED($idTEST, $name, $street, $num_street, $postal, $c
         }*/
 
 }
-
-function getItems()
-{
-    try {
-        $db = new PDO(DB_CONFIG, DB_USER, DB_PASSWORD);
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
-    $sql = "SELECT * FROM items";
-    $req = $db->query($sql);
-    return $req;
-}
-

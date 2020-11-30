@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Mon blog</title>
-    <link href="style.css" rel="stylesheet" />
-</head>
-
-<body>
-<h1>CRUD Shops</h1>
-<p></p>
-
 <?php
-while ($data = $shop->fetch())
-{
+while ($data = $shop->fetch()) {
     ?>
     <div>
-        <form method="POST" action="?page=modifyShop&id=<?=$data['id']?>" enctype="multipart/form-data">
+        <form method="POST" action="?page=modifyShop&id=<?= $data['id'] ?>" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Nom : </label>
                 <input type="text" class="form-control" id="name" name="name" value="<?= $data['name'] ?>">
@@ -26,7 +13,8 @@ while ($data = $shop->fetch())
             </div>
             <div class="form-group">
                 <label for="number_street">n° dans la rue : </label>
-                <input type="text" class="form-control" id="number_street" name="number_street" value="<?= $data['street_number']?>">
+                <input type="text" class="form-control" id="number_street" name="number_street"
+                       value="<?= $data['street_number'] ?>">
             </div>
             <div class="form-group">
                 <label for="postal">Code postal : </label>
@@ -54,9 +42,10 @@ while ($data = $shop->fetch())
             </div>
             <div class="form-group">
                 <label for="longitude">Longitude : </label>
-                <input type="text" class="form-control" id="longitude" name="longitude" value="<?= $data['longitude'] ?>">
+                <input type="text" class="form-control" id="longitude" name="longitude"
+                       value="<?= $data['longitude'] ?>">
             </div>
-            <input type="hidden" name="id" value="<?= $data['id']?>">
+            <input type="hidden" name="id" value="<?= $data['id'] ?>">
             <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
     </div>
@@ -64,6 +53,6 @@ while ($data = $shop->fetch())
 }
 $shop->closeCursor();
 $pageTitle = 'Magasin';
-$h2 = 'Gestion du magasin : ';
+$h2 = "Gestion du magasin :";
 $pageContent = ob_get_clean();
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'template' . DIRECTORY_SEPARATOR . 'admin.template.php';
