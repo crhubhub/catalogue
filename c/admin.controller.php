@@ -114,11 +114,11 @@ if (($_GET['page']) === 'delete-shop') {
 if (($_GET['page']) === 'add-shop') {
     if (isset($_FILES['image'])) {
         try {
-            $shopDefaultImageName = addImageToNewShop($_FILES['image'], $dir);
+            $shopDefaultImageName = addImageToNewShop($_FILES['image'], $shopDir);
         } catch (Exception $e) {
         }
     }else {
-        $shopDefaultImageName = 'def_shop.jpg';
+        $shopDefaultImageName = 'default_shop.jpg';
         }
 
 
